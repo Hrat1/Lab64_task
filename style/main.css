@@ -1,5 +1,7 @@
 /*global pages style*/
-
+body{
+    overflow-x: hidden;
+}
 .error-from-backend{
     margin-bottom: 8px;
     color: red;
@@ -15,9 +17,71 @@
     margin: 20% auto 5% auto;
 }
 
-/*////////////////////////////////////////////////////////////////*/
-/*signIn page end*/
-/*//////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////*/
+/*index page start*/
+/*///////////////////////////////////////////////////////////////*/
+
+/*table links side*/
+
+.table-links-wrap>div{
+    height: 100vmax;
+    background-color: #2899fc;
+    padding-top: 20%;
+}
+.table-links-wrap>div>div>.active{
+    border: none #2899fc!important;
+    background-color: rgb(74 74 74 / 50%) !important;
+    color: #fff !important;
+}
+.table-links-wrap>div>div{
+    position: fixed;
+}
+.table-links-wrap>div>div>a{
+    color: #e3e3e3!important;
+    text-transform: uppercase;
+}
+.table-links-wrap>div>div>a:hover{
+    color: #ffffff!important;
+    background-color: rgb(74 74 74 / 40%) !important;
+}
+
+
+/*table view side*/
+
+.table-view-wrap{
+    padding: 0 52px;
+}
+.tab-panel-title{
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: #2899fc;
+}
+thead>tr>th{
+    color: #2899fc;
+    text-transform: uppercase;
+}
+td>span{
+    cursor: pointer;
+    color: #2899fc;
+    user-select: none;
+}
+td>span:hover{
+    color: #0c70c6;
+}
+.text-danger:hover{
+    color: #c80505!important;
+}
+
+.addButton{
+    text-align: right;
+    cursor: pointer;
+    color: #949393;
+    text-transform: uppercase;
+}
+.addButton:hover{
+    color: black;
+}
 
 
 /*////////////////////////////////////////////////////////////////*/
@@ -29,7 +93,3 @@
         margin-top: 40%;
     }
 }
-
-/*////////////////////////////////////////////////////////////////*/
-/*media rules end*/
-/*//////////////////////////////////////////////////////////////*/
