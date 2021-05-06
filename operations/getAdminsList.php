@@ -2,25 +2,32 @@
 include_once("db.php");
 include_once("encrypt.php");
 privateSession($conn);
-
 $getAdminListCommand = "SELECT * FROM admins";
 $requestResult = $conn->query($getAdminListCommand);
 
 if ($requestResult->num_rows > 0) {
     while ($row = $requestResult->fetch_assoc()) {
-        $adminUsername = decrypt($row['username']);
+        $adminUsername = $row['username'];
+        $adminUsernameMD5 = md5($row['username']);
+        $adminUsernameEnc = decrypt($row['username']);
         $adminName = decrypt($row['name']);
         $adminPassword = decrypt($row['password']);
         ?>
-        <tr>
+        <tr id="<?php echo $adminUsernameMD5;?>">
             <td><?php echo $adminName;?></td>
-            <td><?php echo $adminUsername;?></td>
+            <td><?php echo $adminUsernameEnc;?></td>
             <td><?php echo $adminPassword;?></td>
             <td>
                 <span>Edit</span>
             </td>
             <td>
-                <span class="text-danger">Delete</span>
+                <span class="text-danger"
+                      data-mdb-toggle="modal"
+                      data-mdb-target="#deleteAdmin"
+                      data-mdb-id="<?php echo $adminUsernameMD5; ?>"
+                      data-mdb-username="<?php echo $adminUsernameEnc; ?>">
+                    Delete
+                </span>
             </td>
         </tr>
         <?php

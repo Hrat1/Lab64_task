@@ -2,6 +2,8 @@
 include_once "db.php";
 include_once("operations/session.php");
 privateSession($conn);
+
+
 ?>
 
 <!doctype html>
@@ -138,8 +140,35 @@ privateSession($conn);
     </div>
 </div>
 
+<!--deleteAdmin modal-->
+<div class="modal fade" id="deleteAdmin" tabindex="-1" aria-labelledby="deleteAdminLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="modal-userid"></span>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="errorFromBackend"></span>
+                <p>Do you want delete
+                    <span id="modal-username" class="modal-adminUsername"></span>'s account?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-danger" id="adminDeleteBtn" onclick="deleteAdmin()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+COPY
+OPEN IN MDB EDITOR
+
+
 <script src="js/jquery.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/api.js"></script>
 <script type="text/javascript" src="mdb/js/mdb.min.js"></script>
 </body>
 </html>

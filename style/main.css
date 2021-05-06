@@ -88,6 +88,19 @@ td>span:hover{
 }
 
 
+
+/*modal styles*/
+
+#modal-userid{
+    display: none;
+}
+#errorFromBackend {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
 /*////////////////////////////////////////////////////////////////*/
 /*media rules start*/
 /*//////////////////////////////////////////////////////////////*/
