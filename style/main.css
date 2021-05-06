@@ -66,6 +66,10 @@ td>span{
     color: #2899fc;
     user-select: none;
 }
+td>h6{
+    color: #7d7d7d;
+    margin-bottom: 0;
+}
 td>span:hover{
     color: #0c70c6;
 }

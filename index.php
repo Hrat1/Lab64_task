@@ -33,7 +33,7 @@ privateSession($conn);
     </div>
     <div class="col-12 col-sm-9 table-view-wrap">
         <div class="tab-content" id="v-tabs-tabContent">
-            <div class="tab-pane fade show active" id="v-tabs-orders" role="tabpanel" aria-labelledby="v-tabs-home-tab">
+            <div class="tab-pane fade show active" id="v-tabs-orders" role="tabpanel" aria-labelledby="v-tabs-orders-tab">
                 <div class="order-list-wrap pt-4">
                     <h5 class="tab-panel-title">List of orders</h5>
                     <div class="table-wrapper table-responsive">
@@ -71,7 +71,7 @@ privateSession($conn);
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="v-tabs-products" role="tabpanel" aria-labelledby="v-tabs-profile-tab">
+            <div class="tab-pane fade" id="v-tabs-products" role="tabpanel" aria-labelledby="v-tabs-products-tab">
                 <div class="product-list-wrap pt-4">
                     <h5 class="tab-panel-title">List of products</h5>
                     <p class="addButton">Add new product</p>
@@ -113,7 +113,7 @@ privateSession($conn);
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="v-tabs-admins" role="tabpanel" aria-labelledby="v-tabs-messages-tab">
+            <div class="tab-pane fade" id="v-tabs-admins" role="tabpanel" aria-labelledby="v-tabs-admins-tab">
                 <div class="admin-list-wrap pt-4">
                     <h5 class="tab-panel-title">List of admins</h5>
                     <p class="addButton">Add new admin</p>
@@ -128,28 +128,7 @@ privateSession($conn);
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Hrat Tahmazyan</td>
-                                <td>admin</td>
-                                <td>password</td>
-                                <td>
-                                    <span>Edit</span>
-                                </td>
-                                <td>
-                                    <span class="text-danger">Delete</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Admin Adminyan</td>
-                                <td>admin2</td>
-                                <td>adminpassword</td>
-                                <td>
-                                    <span>Edit</span>
-                                </td>
-                                <td>
-                                    <span class="text-danger">Delete</span>
-                                </td>
-                            </tr>
+                                <?php include_once "operations/getAdminsList.php"?>
                             </tbody>
                         </table>
                     </div>
