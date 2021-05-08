@@ -1,8 +1,11 @@
+////////////////////////////////////////////////////////////////////
+// admin side start
+
 function deleteAdmin(){
     let modalUsername = $('#modal-username').text();
     let modalUserId = $('#modal-userid').text();
     let errorText = $('#errorFromBackend');
-    let adminDeleteButton = $('#adminDeleteBtn');
+    let adminDeleteButton = $('#closeDelAdminM');
     let modalDeleteLine = $('#' + modalUserId);
 
     $.ajax({
@@ -11,7 +14,6 @@ function deleteAdmin(){
         data: {deleteAdmin: modalUsername},
         success: function (msg) {
             if (msg === "Admin already deleted.") {
-                adminDeleteButton.attr('data-mdb-dismiss', 'modal');
                 adminDeleteButton.click();
                 modalDeleteLine.remove();
             }else{
@@ -65,8 +67,9 @@ function addAdmin() {
             }
         });
     }
-
-
-
-
 }
+
+
+
+// admin side End
+////////////////////////////////////////////////////////////////////
