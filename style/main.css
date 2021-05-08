@@ -7,6 +7,10 @@ body{
     color: red;
     font-size: 14px;
 }
+.modal-title{
+    margin-top: 2px;
+}
+
 
 /*////////////////////////////////////////////////////////////////*/
 /*signIn page start*/
@@ -21,6 +25,9 @@ body{
 /*///////////////////////////////////////////////////////////////*/
 /*index page start*/
 /*///////////////////////////////////////////////////////////////*/
+#username{
+    text-transform: lowercase;
+}
 
 /*table links side*/
 .table-links-wrap{

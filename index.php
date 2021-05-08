@@ -116,7 +116,7 @@ privateSession($conn);
             </div>
             <div class="tab-pane fade" id="v-tabs-admins" role="tabpanel" aria-labelledby="v-tabs-admins-tab">
                 <div class="admin-list-wrap pt-4">
-                    <h5 class="tab-panel-title">List of admins <span class="addButton">Add new admin</span></h5>
+                    <h5 class="tab-panel-title">List of admins <span class="addButton" data-mdb-toggle="modal" data-mdb-target="#addAdmin">Add new admin</span></h5>
 
                     <div class="table-wrapper table-responsive">
                         <table class="table">
@@ -158,6 +158,39 @@ privateSession($conn);
                     Close
                 </button>
                 <button type="button" class="btn btn-danger" id="adminDeleteBtn" onclick="deleteAdmin()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--addAdmin modal-->
+<div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="addAdminLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="modal-userid"></span>
+                <h6 class="modal-title">Add Admin</h6>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-outline mb-4">
+                    <input type="text" id="fullName" class="form-control -bs" name="add_full_name" autocomplete="off" minlength="3" maxlength="45" required/>
+                    <label class="form-label" for="fullName">Full Name</label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="text" id="username" class="form-control -bs" name="add_username" autocomplete="off" minlength="3" maxlength="15" required/>
+                    <label class="form-label" for="username">Username</label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="password" id="loginPass" class="form-control" name="add_password" minlength="5" maxlength="30" required/>
+                    <label class="form-label" for="loginPass">Password</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-success" id="adminDeleteBtn">Add</button>
             </div>
         </div>
     </div>

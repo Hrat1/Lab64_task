@@ -9,6 +9,23 @@
 //     },100);
 // });
 
+let usernameField = document.querySelector('[name="add_username"]');
+let passwordField = document.querySelector('[name="add_password"]');
+
+passwordField.addEventListener('keypress', function ( event ) {
+    removeWhiteSpace(event);
+});
+
+usernameField.addEventListener('keypress', function ( event ) {
+    removeWhiteSpace(event);
+});
+
+function removeWhiteSpace(event){
+    let key = event.keyCode;
+    if (key === 32) {
+        event.preventDefault();
+    }
+}
 
 const deleteAdminModal = document.getElementById('deleteAdmin');
 deleteAdminModal.addEventListener('show.mdb.modal', (event) => {
