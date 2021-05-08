@@ -18,7 +18,13 @@ if ($requestResult->num_rows > 0) {
             <td><?php echo $adminUsernameEnc;?></td>
             <td><?php echo $adminPassword;?></td>
             <td>
-                <span>Edit</span>
+                <span data-mdb-toggle="modal"
+                      data-mdb-target="#editAdmin"
+                      data-mdb-id="<?php echo $adminUsernameMD5;?>"
+                      data-mdb-username="<?php echo $adminUsernameEnc;?>"
+                      data-mdb-name="<?php echo $adminName;?>"
+                      data-mdb-pass="<?php echo $adminPassword;?>"
+                >Edit</span>
             </td>
             <td>
                 <span class="text-danger"
