@@ -173,24 +173,25 @@ privateSession($conn);
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="form-outline mb-4">
-                    <input type="text" id="fullName" class="form-control -bs" name="add_full_name" autocomplete="off" minlength="3" maxlength="45" required/>
-                    <label class="form-label" for="fullName">Full Name</label>
+                <span id="errorFromBackendAddAdmin" class="error-from-backend"></span>
+                <div class="form-outline mt-1 mb-4">
+                    <input type="text" id="addFullName" class="form-control -bs" name="add_full_name" autocomplete="off" minlength="3" maxlength="90" required/>
+                    <label class="form-label" for="fullName">Name</label>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="text" id="username" class="form-control -bs" name="add_username" autocomplete="off" minlength="3" maxlength="15" required/>
+                    <input type="text" id="addUsername" class="form-control -bs" name="add_username" autocomplete="off" minlength="3" maxlength="20" required/>
                     <label class="form-label" for="username">Username</label>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="password" id="loginPass" class="form-control" name="add_password" minlength="5" maxlength="30" required/>
-                    <label class="form-label" for="loginPass">Password</label>
+                    <input type="text" id="addPass" class="form-control" name="add_password" minlength="5" maxlength="40" required/>
+                    <label class="form-label" for="addPass">Password</label>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-mdb-dismiss="modal">
+                <button type="button" class="btn btn-white"  id="closeAddAdminM" data-mdb-dismiss="modal">
                     Close
                 </button>
-                <button type="button" class="btn btn-success" id="adminDeleteBtn">Add</button>
+                <button type="button" class="btn btn-success" id="adminDeleteBtn" onclick="addAdmin()">Add</button>
             </div>
         </div>
     </div>

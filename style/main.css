@@ -3,7 +3,7 @@ body{
     overflow-x: hidden;
 }
 .error-from-backend{
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: red;
     font-size: 14px;
 }
@@ -25,7 +25,7 @@ body{
 /*///////////////////////////////////////////////////////////////*/
 /*index page start*/
 /*///////////////////////////////////////////////////////////////*/
-#username{
+#addUsername{
     text-transform: lowercase;
 }
 
