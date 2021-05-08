@@ -138,65 +138,7 @@ privateSession($conn);
         </div>
     </div>
 </div>
-
-<!--admin modals-->
-<!--deleteAdmin modal-->
-<div class="modal fade" id="deleteAdmin" tabindex="-1" aria-labelledby="deleteAdminLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span id="modal-userid"></span>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <span id="errorFromBackend"></span>
-                <p>Do you want delete
-                    <span id="modal-username" class="modal-adminUsername"></span>'s account?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-white" data-mdb-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-danger" id="adminDeleteBtn" onclick="deleteAdmin()">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--addAdmin modal-->
-<div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="addAdminLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span id="modal-userid"></span>
-                <h6 class="modal-title">Add Admin</h6>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <span id="errorFromBackendAddAdmin" class="error-from-backend"></span>
-                <div class="form-outline mt-1 mb-4">
-                    <input type="text" id="addFullName" class="form-control -bs" name="add_full_name" autocomplete="off" minlength="3" maxlength="90" required/>
-                    <label class="form-label" for="fullName">Name</label>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="addUsername" class="form-control -bs" name="add_username" autocomplete="off" minlength="3" maxlength="20" required/>
-                    <label class="form-label" for="username">Username</label>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="text" id="addPass" class="form-control" name="add_password" minlength="5" maxlength="40" required/>
-                    <label class="form-label" for="addPass">Password</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-white"  id="closeAddAdminM" data-mdb-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-success" id="adminDeleteBtn" onclick="addAdmin()">Add</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+<?php include_once "modals/adminSideModals.html";?>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/main.js"></script>
