@@ -1,13 +1,13 @@
-$(document).ready(function() {
-    $(".table-links").css({
-        'width': ($(".table-links-wrap").width() + 'px')
-    });
-    setInterval(function () {
-        $(".table-links").css({
-            'width': ($(".table-links-wrap").width() + 'px')
-        });
-    },100);
-});
+// $(document).ready(function() {
+//     $(".table-links").css({
+//         'width': ($(".table-links-wrap").width() + 'px')
+//     });
+//     setInterval(function () {
+//         $(".table-links").css({
+//             'width': ($(".table-links-wrap").width() + 'px')
+//         });
+//     },100);
+// });
 
 
 const deleteAdminModal = document.getElementById('deleteAdmin');

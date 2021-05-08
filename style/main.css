@@ -23,20 +23,23 @@ body{
 /*///////////////////////////////////////////////////////////////*/
 
 /*table links side*/
-
+.table-links-wrap{
+    height: 100vh;
+    position: fixed;
+}
 .table-links-wrap>div{
-    height: 100vmax;
+    height: 100%;
     background-color: #2899fc;
-    padding-top: 20%;
+    /*padding-top: 20%;*/
 }
 .table-links-wrap>div>div>.active{
     border: none #2899fc!important;
     background-color: rgb(74 74 74 / 50%) !important;
     color: #fff !important;
 }
-.table-links-wrap>div>div{
-    position: fixed;
-}
+/*.table-links-wrap>div>div{*/
+/*    position: fixed;*/
+/*}*/
 .table-links-wrap>div>div>a{
     color: #e3e3e3!important;
     text-transform: uppercase;
@@ -51,6 +54,10 @@ body{
 
 .table-view-wrap{
     padding: 0 52px;
+    float: right;
+    right: 0;
+    position: absolute;
+
 }
 .tab-panel-title{
     text-transform: uppercase;
@@ -82,6 +89,8 @@ td>span:hover{
     cursor: pointer;
     color: #949393;
     text-transform: uppercase;
+    float: right;
+    font-size: 15px;
 }
 .addButton:hover{
     color: black;

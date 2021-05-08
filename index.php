@@ -75,8 +75,7 @@ privateSession($conn);
             </div>
             <div class="tab-pane fade" id="v-tabs-products" role="tabpanel" aria-labelledby="v-tabs-products-tab">
                 <div class="product-list-wrap pt-4">
-                    <h5 class="tab-panel-title">List of products</h5>
-                    <p class="addButton">Add new product</p>
+                    <h5 class="tab-panel-title">List of products <span class="addButton">Add new product</span></h5>
                     <div class="table-wrapper table-responsive">
                         <table class="table">
                             <thead>
@@ -117,8 +116,8 @@ privateSession($conn);
             </div>
             <div class="tab-pane fade" id="v-tabs-admins" role="tabpanel" aria-labelledby="v-tabs-admins-tab">
                 <div class="admin-list-wrap pt-4">
-                    <h5 class="tab-panel-title">List of admins</h5>
-                    <p class="addButton">Add new admin</p>
+                    <h5 class="tab-panel-title">List of admins <span class="addButton">Add new admin</span></h5>
+
                     <div class="table-wrapper table-responsive">
                         <table class="table">
                             <thead>
@@ -140,6 +139,7 @@ privateSession($conn);
     </div>
 </div>
 
+<!--admin modals-->
 <!--deleteAdmin modal-->
 <div class="modal fade" id="deleteAdmin" tabindex="-1" aria-labelledby="deleteAdminLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -162,8 +162,6 @@ privateSession($conn);
         </div>
     </div>
 </div>
-COPY
-OPEN IN MDB EDITOR
 
 
 <script src="js/jquery.min.js"></script>
