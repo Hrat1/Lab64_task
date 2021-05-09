@@ -56,13 +56,17 @@ editAdminModal.addEventListener('show.mdb.modal', (event) => {
     const recName = button.getAttribute('data-mdb-name');
     const recPass = button.getAttribute('data-mdb-pass');
     const recUserId = button.getAttribute('data-mdb-id');
+    const recUserIdDB = button.getAttribute('data-mdb-id-db');
+
     const nameInput = editAdminModal.querySelector('#editFullName');
     const usernameInput = editAdminModal.querySelector('#editUsername');
     const passwordInput = editAdminModal.querySelector('#editPass');
     const userId = editAdminModal.querySelector('#editUserId');
+    const userIdDB = editAdminModal.querySelector('#editIdDB');
 
     errorText.textContent = "";
     userId.textContent = `${recUserId}`;
+    userIdDB.textContent = `${recUserIdDB}`;
     nameInput.value = recName;
     usernameInput.value = recUsername;
     passwordInput.value = recPass;

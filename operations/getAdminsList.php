@@ -8,6 +8,7 @@ $requestResult = $conn->query($getAdminListCommand);
 if ($requestResult->num_rows > 0) {
     while ($row = $requestResult->fetch_assoc()) {
         $adminUsername = $row['username'];
+        $adminID = $row['id'];
         $adminUsernameMD5 = md5($row['username']);
         $adminUsernameEnc = decrypt($row['username']);
         $adminName = decrypt($row['name']);
@@ -24,6 +25,7 @@ if ($requestResult->num_rows > 0) {
                       data-mdb-username="<?php echo $adminUsernameEnc;?>"
                       data-mdb-name="<?php echo $adminName;?>"
                       data-mdb-pass="<?php echo $adminPassword;?>"
+                      data-mdb-id-db="<?php echo $adminID;?>"
                 >Edit</span>
             </td>
             <td>
