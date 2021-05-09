@@ -179,7 +179,6 @@ function addProduct() {
     let addProdPrice = $('#addProdPrice').val();
     let addProdImg = $('#addProdImg').val();
     let ext = addProdImg.split('.').pop().toLowerCase();
-    let closeButton = $('#closeAddProdM');
     let errorText = $('#errorFromBackendAddProduct');
 
     errorText.css("color", "red");
@@ -217,6 +216,36 @@ function addProduct() {
     }
 }
 
+
+function deleteProduct(){
+    let productId = $('#modal-prodIdDelete').text();
+    let errorText = $('#errorFromBackendDeleteProd');
+    let closeButton = $('#closeDelProdM');
+
+    errorText.css("color", "red");
+
+    if ($.isNumeric(productId)) {
+        $.ajax({
+            method: 'post',
+            url: '../operations/liveUpdates/productOperations.php',
+            dataType: 'text',
+            data: {
+                deleteProduct: 1,
+                productId: productId,
+            },
+            success: function (msg) {
+                if (msg === "Product successfully deleted") {
+                    closeButton.click();
+                    $('#' + productId).remove();
+                }else {
+                    errorText.html(msg);
+                }
+            }
+        });
+    }else {
+        errorText.html("Something went wrong");
+    }
+}
 
 // products side End
 ////////////////////////////////////////////////////////////////////

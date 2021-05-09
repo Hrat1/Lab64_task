@@ -21,7 +21,7 @@ if (isset($_POST['getProdData'])) {
             $productImgDec = decrypt($productImg);
 
             $response .= '
-					<tr>
+					<tr id="'. $productId.'">
                         <th scope="row">
                             <span
                                 class="showImg" 
@@ -37,7 +37,13 @@ if (isset($_POST['getProdData'])) {
                             <span >Edit</span>
                         </td>
                         <td>
-                            <span class="text-danger">Delete</span>
+                            <span 
+                                class="text-danger"
+                                onclick="showDeleteProductModal(this)"
+                                data-mdb-toggle="modal"
+                                data-mdb-target="#deleteProductModal"
+                                data-mdb-id="'. $productId .'"
+                                >Delete</span>
                         </td>
                     </tr>
 				';
@@ -85,6 +91,36 @@ if (isset($_POST['add_prod_name']) && isset($_POST['add_prod_price']) && isset($
         }
     }else{
         echo "Please write valid data";
+    }
+}
+
+if (isset($_POST['deleteProduct'])) {
+    if (isset($_POST['productId']) && is_numeric($_POST['productId'])) {
+        $productId = $_POST['productId'];
+
+        $selectProductSQL = "SELECT * FROM products WHERE id='$productId'";
+        $selectProductResult = $conn->query($selectProductSQL);
+
+        if ($selectProductResult->num_rows > 0) {
+            $row = $selectProductResult->fetch_assoc();
+            $prodImagePath = decrypt($row['img']);
+
+            $deleteProductSQL = "DELETE FROM products WHERE id='$productId'";
+            $deleteProductResult = $conn->query($deleteProductSQL);
+
+            if (unlink("../../uploads/products/" . $prodImagePath) && $deleteProductResult){
+                echo "Product successfully deleted";
+            }else if (!unlink("../../uploads/products/" . $prodImagePath)) {
+                echo "file don't found";
+            }else{
+                echo "Something is wrong";
+            }
+        }else{
+            echo "Product don't exists";
+        }
+
+    }else{
+        echo "Something is wrong";
     }
 }
 

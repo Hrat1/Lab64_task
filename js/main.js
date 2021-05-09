@@ -85,6 +85,13 @@ function showImage(buttonValues) {
     viewImageTag.src = "/uploads/products/" + recipient;
 }
 
+function showDeleteProductModal(button) {
+    const errorFromBackend = document.getElementById('errorFromBackendDeleteProd');
+    const recipient = button.getAttribute('data-mdb-id');
+    const prodId = document.getElementById('modal-prodIdDelete');
+    prodId.textContent = recipient;
+    errorFromBackend.textContent = "";
+}
 
 
 

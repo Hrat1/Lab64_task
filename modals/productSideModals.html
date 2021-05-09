@@ -40,3 +40,24 @@
         </div>
     </div>
 </div>
+
+<div id="deleteProductModal" aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade"  role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="modal-userid"></span>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="errorFromBackendDeleteProd" class="error-from-backend"></span>
+                <p>Do you want delete product with id <span id="modal-prodIdDelete" class="modal-productId"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" id="closeDelProdM" data-mdb-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-danger" id="prodDeleteBtn" onclick="deleteProduct()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -118,6 +118,7 @@ td>span:hover{
 .showImg {
     cursor: pointer;
     color: #2899fc;
+    text-decoration: underline;
 }
 .showImg:hover{
     color: #0c70c6;
