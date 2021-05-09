@@ -114,6 +114,7 @@ function editAdmin() {
                         $('#' + userId + ' td:nth-child(4) span').attr("data-mdb-username", username);
                         $('#' + userId + ' td:nth-child(4) span').attr("data-mdb-name", fullName);
                         $('#' + userId + ' td:nth-child(4) span').attr("data-mdb-pass", password);
+                        $('#' + userId + ' td:nth-child(5) span').attr("data-mdb-username", username);
 
                         setTimeout(function () {
                             closeButton.click();
