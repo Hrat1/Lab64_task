@@ -125,10 +125,60 @@ function editAdmin(){
                 }
             });
         }
-
     }
-
 }
 
 // admin side End
+////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+// products side start
+
+
+// get Data From db with unlimited scroll
+
+let startProd = 0;
+let limitProd = 12;
+let reachedMax = false;
+
+$(window).scroll(function () {
+    if ($(window).scrollTop() === $(document).height() - $(window).height() && $("#v-tabs-products-tab").attr("aria-selected") === "true") {
+            getData();
+    }
+});
+
+$(document).ready(function () {
+    getData();
+});
+
+function getData() {
+    if (reachedMax)
+        return;
+
+    $.ajax({
+        method: 'post',
+        url: '../operations/liveUpdates/productOperations.php',
+        dataType: 'text',
+        data: {
+            getProdData: 1,
+            start: startProd,
+            limit: limitProd
+        },
+        success: function(response) {
+            if (response === "reachedMax")
+                reachedMax = true;
+            else {
+                startProd += limitProd;
+                $(".resultsProd").append(response);
+            }
+        }
+    });
+}
+
+
+
+
+// products side End
 ////////////////////////////////////////////////////////////////////

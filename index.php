@@ -86,29 +86,8 @@ privateSession($conn);
                                 <th scope="col" colspan="2">actions</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Product1</td>
-                                <td>520</td>
-                                <td>
-                                    <span>Edit</span>
-                                </td>
-                                <td>
-                                    <span class="text-danger">Delete</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Product2</td>
-                                <td>30</td>
-                                <td>
-                                    <span>Edit</span>
-                                </td>
-                                <td>
-                                    <span class="text-danger">Delete</span>
-                                </td>
-                            </tr>
+                            <tbody class="resultsProd">
+
                             </tbody>
                         </table>
                     </div>
