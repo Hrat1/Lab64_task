@@ -93,6 +93,16 @@ function showDeleteProductModal(button) {
     errorFromBackend.textContent = "";
 }
 
+function showEditProductModal(button) {
+    const productNameInput = document.getElementById('editProdName');
+    const productPriceInput = document.getElementById('editProdPrice');
+    const productName = button.getAttribute('data-mdb-prod-name');
+    const productPrice = button.getAttribute('data-mdb-prod-price');
+
+    productNameInput.value = productName;
+    productPriceInput.value = productPrice;
+}
+
 
 
 

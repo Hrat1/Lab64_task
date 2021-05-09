@@ -141,7 +141,7 @@ function editAdmin() {
 // get Data From db with unlimited scroll
 
 let startProd = 0;
-let limitProd = 11;
+let limitProd = 13;
 let reachedMax = false;
 
 $(window).scroll(function () {
@@ -246,6 +246,10 @@ function deleteProduct(){
     }else {
         errorText.html("Something went wrong");
     }
+}
+
+function editProduct() {
+    console.log("edit product");
 }
 
 // products side End

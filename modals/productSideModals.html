@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <span class="error-from-backend" id="errorFromBackendAddProduct"></span>
-                <form id="addProdForm" name="addProdForm" enctype="multipart/form-data">
+                <form enctype="multipart/form-data" id="addProdForm" name="addProdForm">
                     <div class="form-outline mt-1 mb-4">
                         <input autocomplete="off" class="form-control -bs" id="addProdName" maxlength="20" minlength="4"
                                name="add_prod_name" required type="text"/>
@@ -18,7 +18,7 @@
                                minlength="1" name="add_prod_price" required type="number"/>
                         <label class="form-label" for="addProdPrice">Price</label>
                     </div>
-                    <input class="form-control" id="addProdImg" name="add_prod_img" type="file"/>
+                    <input type="file" class="form-control" id="addProdImg" accept="image/x-png, image/jpeg" name="add_prod_img" />
                 </form>
             </div>
             <div class="modal-footer">
@@ -31,32 +31,70 @@
     </div>
 </div>
 
-<div id="viewProdImgModal" aria-hidden="true" aria-labelledby="viewProdImgModalLabel" class="modal fade"  role="dialog" tabindex="-1">
+<div aria-hidden="true" aria-labelledby="viewProdImgModalLabel" class="modal fade" id="viewProdImgModal" role="dialog"
+     tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <img id="viewProdImgSrc" src="" alt="Product image">
+                <img alt="Product image" id="viewProdImgSrc" src="">
             </div>
         </div>
     </div>
 </div>
 
-<div id="deleteProductModal" aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade"  role="dialog" tabindex="-1">
+<div aria-hidden="true" aria-labelledby="deleteProductModalLabel" class="modal fade" id="deleteProductModal"
+     role="dialog" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <span id="modal-userid"></span>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                <button aria-label="Close" class="btn-close" data-mdb-dismiss="modal" type="button"></button>
             </div>
             <div class="modal-body">
-                <span id="errorFromBackendDeleteProd" class="error-from-backend"></span>
-                <p>Do you want delete product with id <span id="modal-prodIdDelete" class="modal-productId"></span>?</p>
+                <span class="error-from-backend" id="errorFromBackendDeleteProd"></span>
+                <p>Do you want delete product with id <span class="modal-productId" id="modal-prodIdDelete"></span>?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-white" id="closeDelProdM" data-mdb-dismiss="modal">
+                <button class="btn btn-white" data-mdb-dismiss="modal" id="closeDelProdM" type="button">
                     Close
                 </button>
-                <button type="button" class="btn btn-danger" id="prodDeleteBtn" onclick="deleteProduct()">Delete</button>
+                <button class="btn btn-danger" id="prodDeleteBtn" onclick="deleteProduct()" type="button">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="editProductLabel" class="modal fade" id="editProduct" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Edit Product</h6>
+                <button aria-label="Close" class="btn-close" data-mdb-dismiss="modal" type="button"></button>
+            </div>
+            <div class="modal-body">
+                <span class="error-from-backend" id="errorFromBackendEditProduct"></span>
+                <form enctype="multipart/form-data" id="editProdForm" name="addProdForm">
+                    <div class="form-outline mt-1 mb-4">
+                        <input autocomplete="off" class="form-control -bs" id="editProdName" maxlength="20"
+                               minlength="4"
+                               name="edit_prod_name" required type="text"/>
+                        <label class="form-label" for="editProdName">Product name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input autocomplete="off" class="form-control -bs" id="editProdPrice" maxlength="10"
+                               minlength="1" name="edit_prod_price" required type="number"/>
+                        <label class="form-label" for="editProdPrice">Price</label>
+                    </div>
+                    <label class="form-label" for="editProdImg">Change Image(optional)</label>
+                    <input  type="file" class="form-control" id="editProdImg" accept="image/x-png, image/jpeg" name="edit_prod_img"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" data-mdb-dismiss="modal" id="closeEditProdM" type="button">
+                    Close
+                </button>
+                <button class="btn btn-success" onclick="" type="button">Change</button>
             </div>
         </div>
     </div>

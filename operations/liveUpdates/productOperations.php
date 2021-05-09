@@ -34,7 +34,14 @@ if (isset($_POST['getProdData'])) {
                         <td>'.$productNameDec .'</td>
                         <td>'.$productPriceDec .'</td>
                         <td>
-                            <span >Edit</span>
+                            <span 
+                                data-mdb-toggle="modal"
+                                data-mdb-target="#editProduct"
+                                data-mdb-prod-name="'.$productNameDec.'"
+                                data-mdb-prod-price="'.$productPriceDec.'"
+                                data-mdb-prod-img="'.$productImgDec.'"
+                                onclick="showEditProductModal(this)"
+                            >Edit</span>
                         </td>
                         <td>
                             <span 
