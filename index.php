@@ -119,8 +119,8 @@ privateSession($conn);
 <?php include_once "modals/productSideModals.html";?>
 
 <script src="js/jquery.min.js"></script>
-<script src="js/main.js"></script>
 <script src="js/api.js"></script>
+<script src="js/main.js"></script>
 <script type="text/javascript" src="mdb/js/mdb.min.js"></script>
 </body>
 </html>

@@ -115,6 +115,16 @@ td>span:hover{
     font-size: 14px;
     margin-bottom: 5px;
 }
+.showImg {
+    cursor: pointer;
+    color: #2899fc;
+}
+.showImg:hover{
+    color: #0c70c6;
+}
+#viewProdImgSrc{
+    width: 100%;
+}
 
 
 /*////////////////////////////////////////////////////////////////*/

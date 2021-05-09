@@ -22,12 +22,19 @@ if (isset($_POST['getProdData'])) {
 
             $response .= '
 					<tr>
-                        <th scope="row">'. $productId .'</th>
+                        <th scope="row">
+                            <span
+                                class="showImg" 
+                                data-mdb-toggle="modal"
+                                data-mdb-target="#viewProdImgModal"
+                                data-mdb-img="'. $productImgDec .'"
+                                onclick="showImage(this)"
+                            >'. $productId .'</span>
+                        </th>
                         <td>'.$productNameDec .'</td>
                         <td>'.$productPriceDec .'</td>
                         <td>
-                            <span 
-                                >Edit</span>
+                            <span >Edit</span>
                         </td>
                         <td>
                             <span class="text-danger">Delete</span>

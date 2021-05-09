@@ -73,8 +73,22 @@ editAdminModal.addEventListener('show.mdb.modal', (event) => {
 });
 
 const addProductModal = document.getElementById('addProductModal');
-
 addProductModal.addEventListener('show.mdb.modal', (event) => {
     let errorText = addProductModal.querySelector('#errorFromBackendAddProduct');
     errorText.textContent = "";
 });
+
+
+function showImage(buttonValues) {
+    const recipient = buttonValues.getAttribute('data-mdb-img');
+    let viewImageTag = document.getElementById('viewProdImgSrc');
+    viewImageTag.src = "/uploads/products/" + recipient;
+}
+
+
+
+
+
+
+
+
