@@ -75,7 +75,7 @@ privateSession($conn);
             </div>
             <div class="tab-pane fade" id="v-tabs-products" role="tabpanel" aria-labelledby="v-tabs-products-tab">
                 <div class="product-list-wrap pt-4">
-                    <h5 class="tab-panel-title">List of products <span class="addButton">Add new product</span></h5>
+                    <h5 class="tab-panel-title">List of products <span class="addButton" id="addProduct" data-mdb-toggle="modal" data-mdb-target="#addProductModal">Add new product</span></h5>
                     <div class="table-wrapper table-responsive">
                         <table class="table">
                             <thead>
@@ -86,9 +86,7 @@ privateSession($conn);
                                 <th scope="col" colspan="2">actions</th>
                             </tr>
                             </thead>
-                            <tbody class="resultsProd">
-
-                            </tbody>
+                            <tbody class="resultsProd"></tbody>
                         </table>
                     </div>
                 </div>
@@ -118,6 +116,7 @@ privateSession($conn);
     </div>
 </div>
 <?php include_once "modals/adminSideModals.html";?>
+<?php include_once "modals/productSideModals.html";?>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/main.js"></script>

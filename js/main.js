@@ -71,3 +71,10 @@ editAdminModal.addEventListener('show.mdb.modal', (event) => {
     usernameInput.value = recUsername;
     passwordInput.value = recPass;
 });
+
+const addProductModal = document.getElementById('addProductModal');
+
+addProductModal.addEventListener('show.mdb.modal', (event) => {
+    let errorText = addProductModal.querySelector('#errorFromBackendAddProduct');
+    errorText.textContent = "";
+});

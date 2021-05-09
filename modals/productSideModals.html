@@ -1,0 +1,32 @@
+<div aria-hidden="true" aria-labelledby="addProductLabel" class="modal fade" id="addProductModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Add Product</h6>
+                <button aria-label="Close" class="btn-close" data-mdb-dismiss="modal" type="button"></button>
+            </div>
+            <div class="modal-body">
+                <span class="error-from-backend" id="errorFromBackendAddProduct"></span>
+                <form id="addProdForm" name="addProdForm" enctype="multipart/form-data">
+                    <div class="form-outline mt-1 mb-4">
+                        <input autocomplete="off" class="form-control -bs" id="addProdName" maxlength="20" minlength="4"
+                               name="add_prod_name" required type="text"/>
+                        <label class="form-label" for="addProdName">Product name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input autocomplete="off" class="form-control -bs" id="addProdPrice" maxlength="10"
+                               minlength="1" name="add_prod_price" required type="number"/>
+                        <label class="form-label" for="addProdPrice">Price</label>
+                    </div>
+                    <input class="form-control" id="addProdImg" name="add_prod_img" type="file"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-white" data-mdb-dismiss="modal" id="closeAddProdM" type="button">
+                    Close
+                </button>
+                <button class="btn btn-success" onclick="addProduct()" type="button">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>

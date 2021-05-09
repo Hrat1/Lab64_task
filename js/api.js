@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////
 // admin side start
 
-function deleteAdmin(){
+function deleteAdmin() {
     let modalUsername = $('#modal-username').text();
     let modalUserId = $('#modal-userid').text();
     let errorText = $('#errorFromBackend');
@@ -16,7 +16,7 @@ function deleteAdmin(){
             if (msg === "Admin already deleted.") {
                 adminDeleteButton.click();
                 modalDeleteLine.remove();
-            }else{
+            } else {
                 errorText.html(msg);
             }
         },
@@ -35,11 +35,11 @@ function addAdmin() {
 
     if (fullName.length < 3 || fullName.length > 90) {
         errorText.html("Name length is not correct");
-    }else if(username.length < 3 || username.length > 20){
+    } else if (username.length < 3 || username.length > 20) {
         errorText.html("Username length is not correct");
-    }else if (password.length < 5 || password.length > 40){
+    } else if (password.length < 5 || password.length > 40) {
         errorText.html("Password length is not correct");
-    }else {
+    } else {
         $.ajax({
             type: 'post',
             url: '../operations/liveUpdates/adminOperations.php',
@@ -60,8 +60,8 @@ function addAdmin() {
                     setTimeout(function () {
                         cancelButton.click();
                         errorText.html("");
-                    },700);
-                }else {
+                    }, 700);
+                } else {
                     errorText.html(msg);
                 }
             }
@@ -69,7 +69,7 @@ function addAdmin() {
     }
 }
 
-function editAdmin(){
+function editAdmin() {
     let fullName = $('#editFullName').val();
     let username = $('#editUsername').val();
     let password = $('#editPass').val();
@@ -86,14 +86,14 @@ function editAdmin(){
     errorText.html("");
     if (nameFTable === fullName && usernameFTable === username && passFTable === password) {
         closeButton.click();
-    }else {
+    } else {
         if (fullName.length < 3 || fullName.length > 90) {
             errorText.html("Name length is not correct");
-        }else if(username.length < 3 || username.length > 20){
+        } else if (username.length < 3 || username.length > 20) {
             errorText.html("Username length is not correct");
-        }else if (password.length < 5 || password.length > 40){
+        } else if (password.length < 5 || password.length > 40) {
             errorText.html("Password length is not correct");
-        }else {
+        } else {
             $.ajax({
                 type: 'post',
                 url: '../operations/liveUpdates/adminOperations.php',
@@ -118,8 +118,8 @@ function editAdmin(){
                         setTimeout(function () {
                             closeButton.click();
                             errorText.html("");
-                        },600);
-                    }else {
+                        }, 600);
+                    } else {
                         errorText.html(msg);
                     }
                 }
@@ -140,12 +140,12 @@ function editAdmin(){
 // get Data From db with unlimited scroll
 
 let startProd = 0;
-let limitProd = 12;
+let limitProd = 11;
 let reachedMax = false;
 
 $(window).scroll(function () {
     if ($(window).scrollTop() === $(document).height() - $(window).height() && $("#v-tabs-products-tab").attr("aria-selected") === "true") {
-            getData();
+        getData();
     }
 });
 
@@ -154,8 +154,7 @@ $(document).ready(function () {
 });
 
 function getData() {
-    if (reachedMax)
-        return;
+    startProd = $('.resultsProd tr').length;
 
     $.ajax({
         method: 'post',
@@ -166,11 +165,8 @@ function getData() {
             start: startProd,
             limit: limitProd
         },
-        success: function(response) {
-            if (response === "reachedMax")
-                reachedMax = true;
-            else {
-                startProd += limitProd;
+        success: function (response) {
+            if (response !== "reachedMax") {
                 $(".resultsProd").append(response);
             }
         }
@@ -178,6 +174,48 @@ function getData() {
 }
 
 
+function addProduct() {
+    let addProductName = $('#addProdName').val();
+    let addProdPrice = $('#addProdPrice').val();
+    let addProdImg = $('#addProdImg').val();
+    let ext = addProdImg.split('.').pop().toLowerCase();
+    let closeButton = $('#closeAddProdM');
+    let errorText = $('#errorFromBackendAddProduct');
+
+    errorText.css("color", "red");
+
+    if (addProductName.length <= 4 || addProductName.length > 20) {
+        errorText.html("Product name length is not valid");
+    } else if (addProdPrice.length < 1 || addProdPrice.length > 10) {
+        errorText.html("Product price length is not valid");
+    } else if (addProdImg.length > 4 && addProductName.length >= 3 && addProdPrice.length > 0) {
+        if ($.inArray(ext, ['png', 'jpg', 'jpeg']) === -1) {
+            errorText.html("Please select JPG, JPEG or PNG format file");
+        } else {
+            let addFormData = document.getElementById('addProdForm');
+
+            $.ajax({
+                url: "../operations/liveUpdates/productOperations.php",
+                type: "post",
+                data: new FormData(addFormData),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (msg) {
+                    if (msg === 'Data Inserted') {
+                        $("#addProdForm")[0].reset();
+                        errorText.css("color", "green");
+                        errorText.html(msg);
+                    } else {
+                        errorText.html(msg);
+                    }
+                },
+            });
+        }
+    } else {
+        errorText.html("Please select product image");
+    }
+}
 
 
 // products side End
