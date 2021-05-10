@@ -96,11 +96,17 @@ function showDeleteProductModal(button) {
 function showEditProductModal(button) {
     const productNameInput = document.getElementById('editProdName');
     const productPriceInput = document.getElementById('editProdPrice');
+    const productIdInput = document.getElementById('editUserIdInput');
+    const prodId = document.getElementById('editProdId');
     const productName = button.getAttribute('data-mdb-prod-name');
     const productPrice = button.getAttribute('data-mdb-prod-price');
+    const productId = button.getAttribute('data-mdb-prod-id');
+
 
     productNameInput.value = productName;
     productPriceInput.value = productPrice;
+    productIdInput.value = productId;
+    prodId.textContent = `${productId}`;
 }
 
 

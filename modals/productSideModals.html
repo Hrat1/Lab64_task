@@ -70,11 +70,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title">Edit Product</h6>
+                <span id="editProdId" class="d-none"></span>
                 <button aria-label="Close" class="btn-close" data-mdb-dismiss="modal" type="button"></button>
             </div>
             <div class="modal-body">
                 <span class="error-from-backend" id="errorFromBackendEditProduct"></span>
-                <form enctype="multipart/form-data" id="editProdForm" name="addProdForm">
+                <form enctype="multipart/form-data" id="editProdForm" name="editProdForm">
+                    <div>
+                        <input type="text" class="d-none" id="editUserIdInput" name="edit_prod_id">
+                    </div>
                     <div class="form-outline mt-1 mb-4">
                         <input autocomplete="off" class="form-control -bs" id="editProdName" maxlength="20"
                                minlength="4"
@@ -94,7 +98,7 @@
                 <button class="btn btn-white" data-mdb-dismiss="modal" id="closeEditProdM" type="button">
                     Close
                 </button>
-                <button class="btn btn-success" onclick="" type="button">Change</button>
+                <button class="btn btn-success" onclick="editProduct()" type="button">Change</button>
             </div>
         </div>
     </div>

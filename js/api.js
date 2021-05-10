@@ -249,7 +249,54 @@ function deleteProduct(){
 }
 
 function editProduct() {
-    console.log("edit product");
+    let editProductName = $('#editProdName').val();
+    let editProdPrice = $('#editProdPrice').val();
+    let editProdImg = $('#editProdImg').val();
+    let ext = editProdImg.split('.').pop().toLowerCase();
+    let errorText = $('#errorFromBackendEditProduct');
+    let prodId = $('#editProdId').text();
+    let tdNameValue = $('#' + prodId + ' td:nth-child(2)').text();
+    let tdPriceValue = $('#' + prodId + ' td:nth-child(3)').text();
+    let closeBtn = $('#closeEditProdM');
+
+    errorText.css("color", "red");
+
+    if (tdNameValue === editProductName && tdPriceValue === editProdPrice && editProdImg.length < 1) {
+        closeBtn.click();
+    }else {
+        if (editProductName.length <= 4 || editProductName.length > 20) {
+            errorText.html("Product name length is not valid");
+        } else if (editProdPrice.length < 1 || editProdPrice.length > 10) {
+            errorText.html("Product price length is not valid");
+        }else if ($.inArray(ext, ['png', 'jpg', 'jpeg']) === -1 && editProdImg.length > 4) {
+            errorText.html("Please select JPG, JPEG or PNG format file");
+        }else {
+            let editFormData = document.getElementById('editProdForm');
+            $.ajax({
+                url: "../operations/liveUpdates/productOperations.php",
+                type: "post",
+                data: new FormData(editFormData),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (msg) {
+                    if (msg.toLowerCase().indexOf(".jpeg") > 0 || msg.toLowerCase().indexOf('.png') > 0 || msg.toLowerCase().indexOf('jpg') > 0){
+                        $('#' + prodId + ' th:nth-child(1) span').attr("data-mdb-img", msg);
+                        $('#' + prodId + ' td:nth-child(2)').html(editProductName);
+                        $('#' + prodId + ' td:nth-child(3)').html(editProdPrice);
+                        $('#' + prodId + ' td:nth-child(4) span').attr("data-mdb-prod-name", editProductName);
+                        $('#' + prodId + ' td:nth-child(4) span').attr("data-mdb-prod-price", editProdPrice);
+                        $('#' + prodId + ' td:nth-child(4) span').attr("data-mdb-prod-img", msg);
+                        closeBtn.click();
+                    } else {
+                        errorText.html(msg);
+                    }
+                },
+            });
+        }
+    }
+
+
 }
 
 // products side End
