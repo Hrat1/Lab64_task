@@ -14,21 +14,21 @@ let passwordField = document.querySelector('[name="add_password"]');
 let passwordFieldEd = document.querySelector('[name="edit_password"]');
 let usernameFieldEd = document.querySelector('[name="edit_username"]');
 
-usernameField.addEventListener('keypress', function ( event ) {
+usernameField.addEventListener('keypress', function (event) {
     removeWhiteSpace(event);
 });
-passwordField.addEventListener('keypress', function ( event ) {
+passwordField.addEventListener('keypress', function (event) {
     removeWhiteSpace(event);
 });
-usernameFieldEd.addEventListener('keypress', function ( event ) {
-    removeWhiteSpace(event);
-});
-
-passwordFieldEd.addEventListener('keypress', function ( event ) {
+usernameFieldEd.addEventListener('keypress', function (event) {
     removeWhiteSpace(event);
 });
 
-function removeWhiteSpace(event){
+passwordFieldEd.addEventListener('keypress', function (event) {
+    removeWhiteSpace(event);
+});
+
+function removeWhiteSpace(event) {
     let key = event.keyCode;
     if (key === 32) {
         event.preventDefault();
@@ -109,6 +109,47 @@ function showEditProductModal(button) {
     prodId.textContent = `${productId}`;
 }
 
+window.addEventListener("resize", function () {
+    let tabButtons = document.getElementsByClassName('nav-link');
+    if (document.documentElement.clientWidth <= 575) {
+        clickTabLinks(tabButtons);
+    }else {
+        removeShowHide(tabButtons);
+    }
+
+}, true);
+
+if (document.documentElement.clientWidth < 575) {
+    let tabButtons = document.getElementsByClassName('nav-link');
+    clickTabLinks(tabButtons);
+}
+
+function clickForShow() {
+    document.getElementById("tabRightSide").style.display = "block";
+    document.getElementById("tabLeftSide").style.display = "none";
+}
+
+function clickTabLinks(buttons) {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', clickForShow, false);
+    }
+}
+
+function removeShowHide(button) {
+    for (let i = 0; i < button.length; i++) {
+        document.getElementById("tabRightSide").style.display = "block";
+        document.getElementById("tabLeftSide").style.display = "block";
+        button[i].removeEventListener('click', clickForShow, false);
+    }
+}
+
+document.getElementById('goBack').addEventListener("click", goBackFunction, false);
+
+
+function goBackFunction(){
+    document.getElementById("tabRightSide").style.display = "none";
+    document.getElementById("tabLeftSide").style.display = "block";
+}
 
 
 

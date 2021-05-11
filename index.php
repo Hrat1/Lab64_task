@@ -19,7 +19,7 @@ privateSession($conn);
 </head>
 <body>
 <div class="row">
-    <div class="col-12 col-sm-3 table-links-wrap">
+    <div class="col-12 col-sm-3 table-links-wrap" id="tabLeftSide">
         <div>
             <div class="nav flex-column nav-tabs text-center table-links" id="v-tabs-tab" role="tablist"
                  aria-orientation="vertical">
@@ -33,7 +33,12 @@ privateSession($conn);
 
         </div>
     </div>
-    <div class="col-12 col-sm-9 table-view-wrap">
+    <div class="col-12 col-sm-9 table-view-wrap" id="tabRightSide">
+        <div id="goToTabLinks">
+            <span id="goBack"><
+                <span>Back</span>
+            </span>
+        </div>
         <div class="tab-content" id="v-tabs-tabContent">
             <div class="tab-pane fade show active" id="v-tabs-orders" role="tabpanel" aria-labelledby="v-tabs-orders-tab">
                 <div class="order-list-wrap pt-4">
